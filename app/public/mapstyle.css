@@ -12,3 +12,11 @@
   .popup-actions {
     cursor:pointer;
   }
+
+.popup-description, popup-status {
+    margin:1em;
+    border:1px solid #bbb;
+    padding:0.5em;
+    max-width:250px;
+    background: #ffffef;
+}

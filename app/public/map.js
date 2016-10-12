@@ -6,7 +6,7 @@ function changeDate(yearstr) {
     console.log(yearstr);
     map.setPaintProperty('planning','fill-color',  {
         property: 'date-start',
-        stops: [[Number(yearstr + '0101'), 'yellow'], [ Number(yearstr + '0101') + 10000, 'red']]
+        stops: [[Number(yearstr + '0101')-10000, 'green'], [Number(yearstr + '0101'), 'red'], [ Number(yearstr + '0101') + 10000, 'yellow']]
     });
 }
 
@@ -94,6 +94,17 @@ function addLayers() {
         filter: [ '==', 'layer', 'Permits' ]
             
     });
+    map.addLayer({
+        id: 'events',
+        type: 'symbol',
+        source: 'sky',
+        layout: {
+            'icon-image': 'zoo-15',
+            'icon-size': 2
+        },
+        filter: [ '==', 'layer', 'Events' ]
+            
+    });
 /*
 
     window.layers.features.forEach(feature => {
@@ -112,21 +123,34 @@ function addLayers() {
         });
     });*/
 
+    function makePopup(lngLat, name, description, status) {
+        var popup = new mapboxgl.Popup()
+            .setLngLat(lngLat)
+            .setHTML(`<h3>${name}</h3>` +
+                     (description ? `<div class="popup-description">${description}</div>` : '') +
+                     (status ? `<div class="popup-status">${status}</div>` : '') +
+                     (description ? `<div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>` : ''))
+            .addTo(map);
+    }
+
     map.on('click', function (e) {
         var features = map.queryRenderedFeatures(e.point, { layers: ['planning'] });
-
-        if (!features.length) {
-            return;
+        if (features.length) {
+            return makePopup(e.lngLat, features[0].properties.name, features[0].properties.description, features[0].properties.status);
+        }
+        features = map.queryRenderedFeatures(e.point, { layers: ['roadclosures'] });
+        if (features.length) {
+            return makePopup(e.lngLat, features[0].properties.name, features[0].properties.description);
+        }
+        features = map.queryRenderedFeatures(e.point, { layers: ['interestarea'] });
+        if (features.length) {
+            return makePopup(e.lngLat, features[0].properties.name, '');
         }
 
-        var feature = features[0];
+        
 
         // Populate the popup and set its coordinates
         // based on the feature found.
-        var popup = new mapboxgl.Popup()
-            .setLngLat(e.lngLat)
-            .setHTML(`<h3>${feature.properties.name}</h3><div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>`)
-            .addTo(map);
     });
 
 }
@@ -139,7 +163,28 @@ map = new mapboxgl.Map({
 });
 map.on('load', addLayers );
 
-document.getElementById('time-slider').addEventListener('change', function(e) {
+document.getElementById('time-slider').addEventListener('input', function(e) {
     console.log(e);
     changeDate(e.target.value);
+});
+
+document.getElementById('address-box').addEventListener('change', function(e) {
+    var request = new XMLHttpRequest();
+
+    request.open('GET', 'http://nominatim.openstreetmap.org/search/' + encodeURIComponent(e.target.value)  +  ', VIC, Australia'+ '?format=json', true);
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+          // Success!
+          var data = JSON.parse(request.responseText);
+          console.log(data);
+          if (data.length > 0) {
+            map.flyTo( { center: [data[0].lon,data[0].lat] });
+          }
+        } else {
+          // We reached our target server, but it returned an error
+
+        }
+    };
+    request.send();
+  //  http://nominatim.openstreetmap.org/search/111%20miller%20st%20fitzroy%20north%20australia?format=json
 });

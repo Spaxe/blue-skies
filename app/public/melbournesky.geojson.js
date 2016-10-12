@@ -9,7 +9,7 @@ window.layers={
         "stroke-opacity": 1,
         "fill": "#555555",
         "fill-opacity": 0.5,
-        "description": "Show me things within this area- Proposed building- Events- Community groups",
+        "description": "",
         "name": "I live here (area of interest)",
         "layer": "InterestArea"
       },
@@ -253,11 +253,13 @@ window.layers={
     {
       "type": "Feature",
       "properties": {
-        "_storage_options": {
-          "iconUrl": "/uploads/pictogram/theatre-24-white.png"
-        },
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "_storage_options": "{\"iconUrl\":\"/uploads/pictogram/theatre-24-white.png\"}",
         "name": "Dog training every Wednesday 6:00-7:00",
-        "description": "Dog obedience classes provided by the City of Melbourne.\n\nâ˜° More info\nâ˜… Follow this \nâœ– Not interested\n"
+        "description": "Dog obedience classes provided by the City of Melbourne.â˜° More infoâ˜… Follow this âœ– Not interested",
+        "layer": "Events"
       },
       "geometry": {
         "type": "Point",
@@ -274,7 +276,7 @@ window.layers={
         "marker-size": "medium",
         "marker-symbol": "",
         "name": "Peel St closed Nov 4",
-        "description": "Peel St Festivalâ˜° More infoâ˜… Follow this âœ– Not interested",
+        "description": "Peel St Festival",
         "layer": "Closures"
       },
       "geometry": {
@@ -292,7 +294,7 @@ window.layers={
         "marker-size": "medium",
         "marker-symbol": "",
         "name": "Roadworks 23 June 2017",
-        "description": "â˜° More infoâ˜… Follow this âœ– Not interested",
+        "description": "Resurfacing Peel St",
         "layer": "Closures"
       },
       "geometry": {
@@ -311,7 +313,7 @@ window.layers={
         "marker-symbol": "",
         "_storage_options": "{\"showLabel\":true}",
         "name": "Extension at 14 Sutton St (Last chance to comment!)",
-        "description": "Comments close on 15 November.â˜° Commentâ˜… Follow this âœ– Not interested",
+        "description": "Comments close on 15 November.",
         "date-start": 20180301,
         "layer": "Permits"
       },
@@ -333,9 +335,10 @@ window.layers={
         "fill-opacity": 0.5,
         "_storage_options": "{\"popupTemplate\":\"Default\"}",
         "name": "Bolte master plan (Comments welcome!)",
-        "description": "Major shopping centre redevelopment.Comments on Phase 1 close December 23.â˜° Commentâ˜… Follow this âœ– Not interested",
+        "description": "Major shopping centre redevelopment.",
         "layer": "Planning",
-        "date-start": 20170401
+        "date-start": 20170401,
+        "status": "Comments on Phase 1 close December 23."
       },
       "geometry": {
         "type": "Polygon",
@@ -406,9 +409,10 @@ window.layers={
         "fill": "#555555",
         "fill-opacity": 0.5,
         "name": "Queensberry Street Revamp (mid 2017-)",
-        "description": "Project to revitalise the streetscape, improve access for pedestrians and improve safety for cyclists.Comments on Phase 1 open March 2017.â˜° More infoâ˜… Follow this âœ– Not interested",
+        "description": "Project to revitalise the streetscape, improve access for pedestrians and improve safety for cyclists.",
         "layer": "Planning",
-        "date-start": 20161105
+        "date-start": 20161105,
+        "status": "Comments on Phase 1 open March 2017."
       },
       "geometry": {
         "type": "Polygon",
@@ -515,6 +519,23 @@ window.layers={
             144.92804646492004,
             -37.79633080698812
           ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#7e7e7e",
+        "marker-size": "medium",
+        "marker-symbol": "",
+        "layer": "Events",
+        "name": "Community bike ride"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          144.92168426513672,
+          -37.78916666399648
         ]
       }
     }
