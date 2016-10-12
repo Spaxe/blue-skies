@@ -8,10 +8,10 @@ var create_item_card = function (name, cat) {
               '<span class="float-right close">✖</span>' +
             '</div>' +
             '<div class="main">' +
-              '<img class="picture" src="http://placekitten.com/250/150">' +
+              '<img class="picture" src="images/image' + (Math.round(Math.random() * 2) + 1) + '.png">' +
               '<div class="content">' +
                 '<span class="subtitle">' + cat + '</span>' +
-                '<span class="name">' + name + '</span>' +
+                '<a href="/project.html"><span class="name">' + name + '</span></a>' +
               '</div>' +
             '</div>' +
             '<div class="bottom">' +
@@ -95,19 +95,34 @@ interest_list.forEach( function (interest) {
   onboard_interest.appendChild(interest_card);
 });
 
+var popup_signup = document.getElementById('popup-signup');
 
 var stars = document.querySelectorAll('.star');
 stars.forEach( function (star) {
   star.addEventListener('click', function (event) {
     star.classList.toggle('selected');
+
+    // NOTE: Uncomment this for popup for signup
+    // popup_signup.style.left = event.layerX + 'px';
+    // popup_signup.style.top = (event.layerY + 15) + 'px';
+    // popup_signup.classList.add('show');
+    // event.stopPropagation();
   });
 });
 
 var closes = document.querySelectorAll('.close');
 closes.forEach( function (close) {
   close.addEventListener('click', function (event) {
-    close.parentNode.parentNode.parentNode.remove();
+    var card = close.parentNode.parentNode;
+    card.classList.add('remove');
+    window.setTimeout(function () {
+      card.parentNode.remove();
+    }, 1000);
   });
+});
+
+document.body.addEventListener('click', function (event) {
+  popup_signup.classList.remove('show');
 });
 
 var submit_onboard = function () {

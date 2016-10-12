@@ -61,14 +61,27 @@ body {
 .card-container {
   display: inline-block;
   margin: 25px;
-  border: 2px solid black;
 }
 
 .card {
-  transition: 2s all;
+  transition: 1s opacity;
+  border: 1px solid black;
+  opacity: 1;
   width: 250px;
   height: 370px;
-  box-sizing: border-box;
+}
+
+.card .picture {
+  width: 250px;
+}
+
+.card a {
+  text-decoration: none;
+  color: black;
+}
+
+.card.remove {
+  opacity: 0;
 }
 
 .card .top,
@@ -185,6 +198,33 @@ body {
   border: 3px solid black;
 }
 
+#popup-signup {
+  transition: 0.3s opacity;
+  padding: 10px 15px;
+  opacity: 0;
+  font-size: 14px;
+  position: absolute;
+  top: -999px;
+  left: -999px;
+  border: 1px solid grey;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+  background: white;
+}
+
+#popup-signup.show {
+  opacity: 1;
+}
+
+#button-signup {
+  display: block;
+  background: #68e862;
+  width: 150px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  border: 0;
+  border-bottom: 2px solid #689862;
+  font-weight: 700;
+}
 
 /* misc */
 
@@ -196,7 +236,8 @@ body {
   align-items: center;
 }
 
-.prompt {
+.prompt,
+.bold {
   font-weight: 700;
 }
 
@@ -208,3 +249,8 @@ body {
   float: right;
 }
 
+/* temp */
+
+.fullpage {
+  width: 100%;
+}
