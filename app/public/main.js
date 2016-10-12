@@ -11,7 +11,7 @@ var create_item_card = function (name, cat) {
               '<img class="picture" src="images/image' + (Math.round(Math.random() * 2) + 1) + '.png">' +
               '<div class="content">' +
                 '<span class="subtitle">' + cat + '</span>' +
-                '<a href="/project.html"><span class="name">' + name + '</span></a>' +
+                '<a href="project.html"><span class="name">' + name + '</span></a>' +
               '</div>' +
             '</div>' +
             '<div class="bottom">' +
