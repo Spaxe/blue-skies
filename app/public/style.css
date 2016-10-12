@@ -42,9 +42,27 @@ body {
 }
 
 #slider-wrapper {
-  width: 600px;
+  width: 1000px;
   position: relative;
-  margin: 0 auto;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#slider-wrapper .flex-item {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+#slider-wrapper .flex-title {
+  flex: 1 0 400px;
+  font-weight: 700;
+}
+
+#slider-wrapper .flex-slider {
+  flex: 1 0 400px;
 }
 
 #slider-wrapper input[type=range] {

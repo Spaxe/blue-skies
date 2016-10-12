@@ -31,20 +31,31 @@
         </div>
 
         <div id="slider-wrapper">
-          <input type="range" id="time-slider" name="time" min="2014" max="2018" step="1">
-          <div class="range-sections">
-            <span class="range-label">2014</span>
-            <span class="range-label">2015</span>
-            <span class="range-label">2016</span>
-            <span class="range-label">2017</span>
-            <span class="range-label">2018</span>
+          <div class="flex-item flex-title">
+            Slide to see changes in this area.
+          </div>
+          <div class="flex-item">
+            Past
+          </div>
+          <div class="flex-item flex-slider">
+            <input type="range" id="time-slider" name="time" min="2014" max="2018" step="1">
+            <div class="range-sections">
+              <span class="range-label">2014</span>
+              <span class="range-label">2015</span>
+              <span class="range-label">Now</span>
+              <span class="range-label">2017</span>
+              <span class="range-label">2018</span>
+            </div>
+          </div>
+          <div class="flex-item">
+            Future
           </div>
         </div>
       </section>
 
       <section class="main_section">
         <h1>Our Picks</h1>
-        <p><span class="bold">Sort by:</span> Time | Popularity | Type</p>
+        <p><span class="bold">Sort by:</span> Time | Popularity | Type | Not Interested</p>
         <div id="our_picks"></div>
 
         <div id="popup-signup">
