@@ -4,6 +4,12 @@
     <title>My Melbourne</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mapstyle.css">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
+
+    <script src="melbournesky.geojson.js"></script>
   </head>
   <body>
 
@@ -21,8 +27,7 @@
       </section>
 
       <section class="main_section">
-        <div id="map">
-          [Map goes here]
+        <div id="mapid">
         </div>
 
         <div id="slider-wrapper">
@@ -45,5 +50,6 @@
     </article>
 
     <script src="main.js"></script>
+    <script src="map.js"></script>
   </body>
 </html>
