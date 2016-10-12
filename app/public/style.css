@@ -100,19 +100,19 @@ body {
 
 /* onboarding */
 
-.onboard_section {
+#personalise {
   font-size: 36px;
   line-height: 1;
   padding: 12px;
   position: relative;
 }
 
-.onboard_section p {
+#personalise p {
   margin: 18px 0;
 }
 
-.onboard_section input[type=text],
-.onboard_section input[type=email] {
+#personalise input[type=text],
+#personalise input[type=email] {
   width: 600px;
   height: 36px;
   font-size: 36px;
@@ -121,12 +121,12 @@ body {
   margin-left: 24px;
 }
 
-.onboard_section input[type=text]:focus,
-.onboard_section input[type=email]:focus {
+#personalise input[type=text]:focus,
+#personalise input[type=email]:focus {
   border-bottom: 3px solid black;
 }
 
-.onboard_section button {
+#personalise button {
   font-size: 36px;
   font-weight: bold;
   padding: 8px 12px;
@@ -134,21 +134,14 @@ body {
   color: white;
 }
 
-#onboard_interest_cards {
-  width: 800px;
-  margin: 0 auto;
-}
-
-
 .interest {
   display: inline-block;
   position: relative;
   width: 250px;
-  height: 150px;
-  margin: 0 calc((100% - 750px) / 6) 12px;
+  height: 50px;
+  margin: 5px 10px;
   font-size: 24px;
   background: #dddddd;
-  border-radius: 3px;
   border: 1px solid black;
   box-sizing: border-box;
   cursor: pointer;
