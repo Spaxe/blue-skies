@@ -1,19 +1,35 @@
 <!DOCTYPE HTML>
-<html">
+<html>
   <head>
-    <title>My Melbourne</title>
-    <link href="style.css">
+    <title>My Melbourne - Tell us a little about yourself</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <section>
-      I live in ...
-    </section>
-    <section>
-      I care about ...
-      <div class="interest">
-        Development
-      </div>
-    </section>
+
+    <article class="wrapper">
+      <section class="onboard_section">
+        <p class="prompt">Tell us a little about yourself. :)</p>
+      </section>
+
+      <section class="onboard_section">
+        <p>I live in <input type="text" name="address" placeholder="address or postcode..."></p>
+      </section>
+
+      <section id="onboard_interest" class="onboard_section">
+        <p>I care about ...</p>
+        <div id="onboard_interest_cards">
+        </div>
+      </section>
+
+      <section id="onboard_email" class="onboard_section">
+        <p>I can be reached on <input type="email" name="email" placeholder="(optional) email or phone number..."></p>
+      </section>
+
+      <section class="onboard_section">
+        <button name="submit" onclick="submit_onboard()">Show me My Melbourne</button>
+      </section>
+    </article>
 
     <script src="main.js"></script>
   </body>
