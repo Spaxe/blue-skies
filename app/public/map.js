@@ -36,7 +36,7 @@ function addLayers() {
         source: 'sky',
         paint: {
             'fill-color': 'purple',
-            'fill-opacity': 0.7,
+            'fill-opacity': 0.3,
             'fill-outline-color': 'purple'
         },
         filter: [ '==', 'layer', 'InterestArea' ]
@@ -48,7 +48,8 @@ function addLayers() {
         source: 'sky',
         paint: {
             'line-color': 'purple',
-            'line-width': 10
+            'line-width': 10,
+            'line-opacity': 0.5
         },
         filter: [ '==', 'layer', 'InterestRoute' ]
             
