@@ -8,6 +8,7 @@ body {
   width: 1280px;
   margin: 0 auto;
   margin-bottom: 60px;
+  position: relative;
 }
 
 #banner {
@@ -16,13 +17,28 @@ body {
   margin: 24px 0;
 }
 
+#banner a {
+  text-decoration: none;
+  color: white;
+}
+
 #logo {
   height: 60px;
   margin: 20px;
 }
 
+#account {
+  float: right;
+  color: white;
+  display: inline-block;
+  height: 20px;
+  margin: 40px 20px;
+}
+
 .main_section {
   margin: 24px 0;
+  position: relative;
+  width: 100%;
 }
 
 #slider-wrapper {
@@ -42,7 +58,45 @@ body {
 }
 
 /* cards */
+.card-container {
+  display: inline-block;
+  margin: 25px;
+  border: 2px solid black;
 
+}
+
+.card {
+  width: 250px;
+  height: 370px;
+  box-sizing: border-box;
+}
+
+.card .top,
+.card .bottom {
+  height: 25px;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.card .main {
+  height: 300px;
+  overflow-y: hidden;
+}
+
+.card .content {
+  margin: 6px;
+  box-sizing: border-box;
+}
+
+.card .subtitle {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.card .name {
+  font-weight: 700;
+}
 
 /* onboarding */
 
@@ -119,3 +173,12 @@ body {
 .prompt {
   font-weight: 700;
 }
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
