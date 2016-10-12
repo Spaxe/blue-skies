@@ -258,7 +258,7 @@ window.layers={
         "marker-symbol": "",
         "_storage_options": "{\"iconUrl\":\"/uploads/pictogram/theatre-24-white.png\"}",
         "name": "Dog training every Wednesday 6:00-7:00",
-        "description": "Dog obedience classes provided by the City of Melbourne.â˜° More infoâ˜… Follow this âœ– Not interested",
+        "description": "Dog obedience classes provided by the City of Melbourne.",
         "layer": "Events"
       },
       "geometry": {
