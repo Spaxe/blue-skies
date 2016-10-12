@@ -186,7 +186,7 @@ document.getElementById('time-slider').addEventListener('input', function(e) {
 document.getElementById('address-box').addEventListener('change', function(e) {
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'http://nominatim.openstreetmap.org/search/' + encodeURIComponent(e.target.value)  +  ', VIC, Australia'+ '?format=json', true);
+    request.open('GET', 'https://nominatim.openstreetmap.org/search/' + encodeURIComponent(e.target.value)  +  ', VIC, Australia'+ '?format=json', true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
           // Success!
