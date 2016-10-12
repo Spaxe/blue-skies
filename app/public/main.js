@@ -95,6 +95,21 @@ interest_list.forEach( function (interest) {
   onboard_interest.appendChild(interest_card);
 });
 
+
+var stars = document.querySelectorAll('.star');
+stars.forEach( function (star) {
+  star.addEventListener('click', function (event) {
+    star.classList.toggle('selected');
+  });
+});
+
+var closes = document.querySelectorAll('.close');
+closes.forEach( function (close) {
+  close.addEventListener('click', function (event) {
+    close.parentNode.parentNode.parentNode.remove();
+  });
+});
+
 var submit_onboard = function () {
   window.location = window.location.origin + '/index.html';
 };
