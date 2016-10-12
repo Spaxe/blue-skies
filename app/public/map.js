@@ -126,9 +126,9 @@ function addLayers() {
     function makePopup(layer, e) {
         var features = map.queryRenderedFeatures(e.point, { layers: [layer] });
         if (features.length) {
-            name = features[0].properties.name;
-            description = features[0].properties.description;
-            status = features[0].properties.status;
+            var name = features[0].properties.name;
+            var description = features[0].properties.description;
+            var status = features[0].properties.status;
             var actions;
             if (layer === 'interestarea') {
                 actions = (description ? `<div class="popup-actions">Notify me about:<br/>☑ Building activity<br/>☑Events</div>` : '');
