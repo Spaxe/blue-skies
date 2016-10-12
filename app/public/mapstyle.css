@@ -1,0 +1,14 @@
+  #mapid {
+    height:500px;
+  width: 600px;
+  height: 600px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 0 auto;
+  }
+  .leaflet-popup-content {
+    /*font-family: 'fira_sanslight',sans-serif;*/
+  }
+  .popup-actions {
+    cursor:hand;
+  }
