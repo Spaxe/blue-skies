@@ -10,6 +10,50 @@ body {
   margin-bottom: 60px;
 }
 
+#banner {
+  height: 100px;
+  background: black;
+  margin: 24px 0;
+}
+
+#logo {
+  height: 60px;
+  margin: 20px;
+}
+
+.main_section {
+  margin: 24px 0;
+}
+
+#map {
+  width: 600px;
+  height: 600px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#slider-wrapper {
+  width: 600px;
+  position: relative;
+  margin: 0 auto;
+}
+
+#slider-wrapper input[type=range] {
+  width: 100%;
+}
+
+.range-sections {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* cards */
+
+
+/* onboarding */
+
 .onboard_section {
   font-size: 36px;
   line-height: 1;
@@ -49,6 +93,7 @@ body {
   margin: 0 auto;
 }
 
+
 .interest {
   display: inline-block;
   position: relative;
@@ -67,6 +112,9 @@ body {
   background: #aaaaaa;
   border: 3px solid black;
 }
+
+
+/* misc */
 
 .flex-center {
   width: 100%;
