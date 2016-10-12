@@ -47,9 +47,6 @@ body {
   border: 1px solid black;
   box-sizing: border-box;
   margin: 0 auto;
-  /* temp */
-  background: url('images/map.png');
-  background-size: cover;
 }
 
 #slider-wrapper {
