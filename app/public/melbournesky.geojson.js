@@ -311,7 +311,7 @@ window.layers={
         "marker-symbol": "",
         "_storage_options": "{\"showLabel\":true}",
         "name": "Extension at 14 Sutton St (Last chance to comment!)",
-        "description": "Comments close on 15 November.â˜° Commentâ˜… Follow this âœ– Not interested",
+        "description": "Comments close on 15 November.",
         "date-start": 20180301,
         "layer": "Permits"
       },
@@ -333,9 +333,10 @@ window.layers={
         "fill-opacity": 0.5,
         "_storage_options": "{\"popupTemplate\":\"Default\"}",
         "name": "Bolte master plan (Comments welcome!)",
-        "description": "Major shopping centre redevelopment.Comments on Phase 1 close December 23.â˜° Commentâ˜… Follow this âœ– Not interested",
+        "description": "Major shopping centre redevelopment.",
         "layer": "Planning",
-        "date-start": 20170401
+        "date-start": 20170401,
+        "status": "Comments on Phase 1 close December 23."
       },
       "geometry": {
         "type": "Polygon",
@@ -406,9 +407,10 @@ window.layers={
         "fill": "#555555",
         "fill-opacity": 0.5,
         "name": "Queensberry Street Revamp (mid 2017-)",
-        "description": "Project to revitalise the streetscape, improve access for pedestrians and improve safety for cyclists.Comments on Phase 1 open March 2017.â˜° More infoâ˜… Follow this âœ– Not interested",
+        "description": "Project to revitalise the streetscape, improve access for pedestrians and improve safety for cyclists.",
         "layer": "Planning",
-        "date-start": 20161105
+        "date-start": 20161105,
+        "status": "Comments on Phase 1 open March 2017."
       },
       "geometry": {
         "type": "Polygon",

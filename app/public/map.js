@@ -6,7 +6,7 @@ function changeDate(yearstr) {
     console.log(yearstr);
     map.setPaintProperty('planning','fill-color',  {
         property: 'date-start',
-        stops: [[Number(yearstr + '0101'), 'yellow'], [ Number(yearstr + '0101') + 10000, 'red']]
+        stops: [[Number(yearstr + '0101')-10000, 'green'], [Number(yearstr + '0101'), 'yellow'], [ Number(yearstr + '0101') + 10000, 'red']]
     });
 }
 
@@ -125,7 +125,10 @@ function addLayers() {
         // based on the feature found.
         var popup = new mapboxgl.Popup()
             .setLngLat(e.lngLat)
-            .setHTML(`<h3>${feature.properties.name}</h3><div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>`)
+            .setHTML(`<h3>${feature.properties.name}</h3>` +
+                     `<div class="popup-description">${feature.properties.description}</div>`+
+                     `<div class="popup-status">${feature.properties.status}</div>` +
+                     `<div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>`)
             .addTo(map);
     });
 

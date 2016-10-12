@@ -12,3 +12,15 @@
   .popup-actions {
     cursor:pointer;
   }
+
+.popup-description {
+    margin:1em;
+    border:1px solid #bbb;
+    padding:0.5em;
+}
+
+.popup-status {
+    margin:1em;
+    border:1px solid #bbb;
+    padding:0.5em;
+}
