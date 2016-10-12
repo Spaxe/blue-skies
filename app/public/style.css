@@ -83,22 +83,42 @@ body {
 }
 
 .card .bottom {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .card .content {
-  margin: 6px;
+  margin: 10px;
   box-sizing: border-box;
 }
 
 .card .subtitle {
+  text-transform: uppercase;
+  font-size: 12px;
   display: inline-block;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .card .name {
   font-weight: 700;
+}
+
+.card .star,
+.card .close {
+  color: #dddddd;
+  cursor: pointer;
+}
+
+.card .comments {
+  cursor: pointer;
+}
+
+.card .star:hover {
+  color: #e1b700;
+}
+
+.card .close:hover {
+  color: #e11700;
 }
 
 /* onboarding */

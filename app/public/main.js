@@ -1,9 +1,11 @@
 var create_item_card = function (name, cat) {
+  var comments = Math.round(Math.random() * 200);
+  var day = Math.round(Math.random() * 30) + 1;
   var template =
           '<div class="card">' +
             '<div class="top">' +
-              '<span class="float-left">★</span>' +
-              '<span class="float-right">✖</span>' +
+              '<span class="float-left star">★</span>' +
+              '<span class="float-right close">✖</span>' +
             '</div>' +
             '<div class="main">' +
               '<img class="picture" src="http://placekitten.com/250/150">' +
@@ -13,8 +15,8 @@ var create_item_card = function (name, cat) {
               '</div>' +
             '</div>' +
             '<div class="bottom">' +
-              '<span class="float-left">' + (Math.round(Math.random() * 200)) + ' comments</span>' +
-              '<span class="float-right">12 Oct 2016</span>' +
+              '<span class="float-left comments">☰ ' + comments + ' comments</span>' +
+              '<span class="float-right">ends ' + day + ' Oct 2016</span>' +
             '</div>' +
           '</div>';
 
