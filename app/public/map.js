@@ -129,12 +129,18 @@ function addLayers() {
             name = features[0].properties.name;
             description = features[0].properties.description;
             status = features[0].properties.description;
+            var actions;
+            if (layer === 'interestarea') {
+                actions = (description ? `<div class="popup-actions">Notify me about:<br/>☑ Building activity<br/>☑Events</div>` : '');
+            } else {
+                actions = (description ? `<div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>` : '');
+            }
             var popup = new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
                 .setHTML(`<h3>${name}</h3>` +
                          (description ? `<div class="popup-description">${description}</div>` : '') +
                          (status ? `<div class="popup-status">${status}</div>` : '') +
-                         (description ? `<div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>` : ''))
+                         actions)
                 .addTo(map);
             return true;
         }
