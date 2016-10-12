@@ -82,13 +82,17 @@ body {
 .card .top,
 .card .bottom {
   height: 25px;
-  margin: 5px;
+  margin: 5px 10px;
   box-sizing: border-box;
 }
 
 .card .main {
   height: 300px;
   overflow-y: hidden;
+}
+
+.card .bottom {
+  font-size: 16px;
 }
 
 .card .content {
