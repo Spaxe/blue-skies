@@ -65,6 +65,7 @@ body {
 }
 
 .card {
+  transition: 2s all;
   width: 250px;
   height: 370px;
   box-sizing: border-box;
@@ -75,6 +76,10 @@ body {
   height: 25px;
   margin: 5px 10px;
   box-sizing: border-box;
+}
+
+.card .top {
+  user-select: no-select;
 }
 
 .card .main {
@@ -114,6 +119,11 @@ body {
 }
 
 .card .star:hover {
+  color: grey;
+}
+
+.card .star.selected,
+.card .star.selected:hover {
   color: #e1b700;
 }
 
