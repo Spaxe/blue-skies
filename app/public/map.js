@@ -2,10 +2,11 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RldmFnZSIsImEiOiJGcW03aExzIn0.QUkUmTGIO3gGt83HiRIjQw';
 
 var map;
-function changeDate() {
+function changeDate(yearstr) {
+    console.log(yearstr);
     map.setPaintProperty('planning','fill-color',  {
         property: 'date-start',
-        stops: [[20171101, 'yellow'], [ 20181201, 'red']]
+        stops: [[Number(yearstr + '0101'), 'yellow'], [ Number(yearstr + '0101') + 10000, 'red']]
     });
 }
 
@@ -136,3 +137,8 @@ map = new mapboxgl.Map({
     zoom: 13
 });
 map.on('load', addLayers );
+
+document.getElementById('time-slider').addEventListener('change', function(e) {
+    console.log(e);
+    changeDate(e.target.value);
+});
