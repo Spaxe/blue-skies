@@ -1,11 +1,27 @@
   #mapid {
     height:500px;
-  width: 100%;
-  height: 600px;
-  border: 1px solid black;
-  box-sizing: border-box;
-  margin: 0 auto;
+    width: 100%;
+    height: 600px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0 auto;
+    animation: fadein 2s;
+    
   }
+
+#slider-wrapper {
+
+}
+
+#map-wrapper {
+    /*display: none;*/
+}
+
+@keyframes fadein {
+    from {opacity: 0; }
+    to { opacity: 1; }
+}
+
   .leaflet-popup-content {
     /*font-family: 'fira_sanslight',sans-serif;*/
   }
@@ -19,4 +35,19 @@
     padding:0.5em;
     max-width:250px;
     background: #ffffef;
+}
+
+.popup-type-roadclosures {
+    border: 2px solid hsl(0,50%,80%);
+    padding: 1em;
+}
+
+.popup-type-interestarea {
+    border: 2px dashed purple;
+    padding: 1em;
+    background:hsl(330,30%,95%);
+}
+
+.popup-status ul {
+    padding-left:12px; /* less bullets */
 }

@@ -8,7 +8,7 @@
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.25.1/mapbox-gl.css' rel='stylesheet' />
-
+    <script src='https://code.jquery.com/jquery-3.1.1.slim.min.js'></script>
     <script src="melbournesky.geojson.js"></script>
   </head>
   <body>
@@ -27,6 +27,7 @@
       </section>
 
       <section class="main_section">
+      <div id="map-wrapper">
         <div id="mapid">
         </div>
 
@@ -51,6 +52,7 @@
             Future
           </div>
         </div>
+        </div>
       </section>
 
       <section class="main_section">
@@ -65,6 +67,11 @@
       </section>
 
     </article>
+    <div class="profile-popup">
+    <h2>Would you like to create a profile?</h2>
+    What's your email address?
+    <input type="text" />
+    </div>
 
     <script src="main.js"></script>
     <script src="map.js"></script>

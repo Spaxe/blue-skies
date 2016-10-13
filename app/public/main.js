@@ -103,10 +103,10 @@ stars.forEach( function (star) {
     star.classList.toggle('selected');
 
     // NOTE: Uncomment this for popup for signup
-    // popup_signup.style.left = event.layerX + 'px';
-    // popup_signup.style.top = (event.layerY + 15) + 'px';
-    // popup_signup.classList.add('show');
-    // event.stopPropagation();
+     popup_signup.style.left = event.layerX + 'px';
+     popup_signup.style.top = (event.layerY + 15) + 'px';
+     popup_signup.classList.add('show');
+     event.stopPropagation();
   });
 });
 

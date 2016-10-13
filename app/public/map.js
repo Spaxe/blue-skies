@@ -8,12 +8,28 @@ function changeDate(yearstr) {
         property: 'date-start',
         stops: [[Number(yearstr + '0101')-10000, 'green'], [Number(yearstr + '0101'), 'red'], [ Number(yearstr + '0101') + 10000, 'yellow']]
     });
+    map.setPaintProperty('planning-outline','line-color',  {
+        property: 'date-start',
+        stops: [[Number(yearstr + '0101')-10000, 'green'], [Number(yearstr + '0101'), 'red'], [ Number(yearstr + '0101') + 10000, 'yellow']]
+    });
 }
 
-function addLayers() {
+function addLayers(data) {
+    window.layers = data;//ha!
     map.addSource('sky', {
         type: 'geojson',
         data: window.layers
+    });
+    map.addLayer({
+        id: 'planning-outline',// + feature.properties.name,
+        type: 'line',
+        source: 'sky',
+        paint: {
+            'line-color': 'black',
+            'line-width': 2
+        },
+        filter: [ '==', 'layer', 'Planning' ]
+            
     });
     map.addLayer({
         id: 'planning',// + feature.properties.name,
@@ -24,8 +40,8 @@ function addLayers() {
                 property: 'date-start',
                 stops: [[20161101, 'yellow'], [ 20161201, 'red']]
             },
-            'fill-opacity': 0.7,
-            'fill-outline-color': 'orange'
+            'fill-opacity': 0.4,
+            'fill-outline-color': 'red'
         },
         filter: [ '==', 'layer', 'Planning' ]
             
@@ -36,8 +52,21 @@ function addLayers() {
         source: 'sky',
         paint: {
             'fill-color': 'purple',
-            'fill-opacity': 0.3,
+            'fill-opacity': 0.1,
             'fill-outline-color': 'purple'
+        },
+        filter: [ '==', 'layer', 'InterestArea' ]
+            
+    });
+    map.addLayer({
+        id: 'interestarea-line',
+        type: 'line',
+        source: 'sky',
+        paint: {
+            'line-color': 'purple',
+            'line-opacity': 0.7,
+            'line-width': 2,
+            'line-dasharray': [4,2]
         },
         filter: [ '==', 'layer', 'InterestArea' ]
             
@@ -59,8 +88,8 @@ function addLayers() {
         type: 'symbol',
         source: 'sky',
         layout: {
-            'icon-image': 'circle-15',
-            'icon-size': 2
+            'icon-image': 'triangle-stroked-15',
+            'icon-size': 1.5
         },
         paint: {
             'icon-color': 'red' // ignored
@@ -84,13 +113,7 @@ function addLayers() {
         },
         paint: {
             'icon-color': 'red' // ignored
-
-            //'text-field': 'Road closure'
         },
-        /*paint: {
-            'line-color': 'purple',
-            'line-width': 10
-        },*/
         filter: [ '==', 'layer', 'Permits' ]
             
     });
@@ -105,6 +128,8 @@ function addLayers() {
         filter: [ '==', 'layer', 'Events' ]
             
     });
+
+    changeDate('2016');
 /*
 
     window.layers.features.forEach(feature => {
@@ -126,21 +151,38 @@ function addLayers() {
     function makePopup(layer, e) {
         var features = map.queryRenderedFeatures(e.point, { layers: [layer] });
         if (features.length) {
-            var name = features[0].properties.name;
-            var description = features[0].properties.description;
-            var status = features[0].properties.status;
+            var p = features[0].properties;
+            var name = p.name;
+            var description = p.description;
+            var status = p.status;
             var actions;
+            var cb = '<input type="checkbox">';
             if (layer === 'interestarea') {
-                actions = (description ? `<div class="popup-actions">Notify me about:<br/>☑ Building activity<br/>☑Events</div>` : '');
-            } else {
-                actions = (description ? `<div class="popup-actions">☰ Comment<br/>★ Follow this <br/>✖ Not interested</div>` : '');
+                actions = `<div class="popup-actions">Notify me about:<br/>${cb}Building activity<br/>${cb}Events</div>`;
+                description = '';
+            } else if (description) {
+                actions = `<div class="popup-actions">☰ Comment<br/>`;
+                if (p.following === 'true') {
+                    actions += `★ You're following this.<br/>`;
+                } else {
+                    actions += '★ Follow this <br/>';
+                }
+                actions += '✖ Not interested</div>';
             }
+            
+            var html = `<div class="popup-type-${layer}">` + 
+
+                        '<h3>' + (layer === 'roadclosures' ? '🚧 ' : '') + `${name}</h3>` +
+                        
+                        (description ? `<div class="popup-description">${description}</div>` : '') +
+                        (status ? `<div class="popup-status">${status}</div>` : '') +
+                        actions + '</div>';
+            /*if (layer === 'roadclosures') {
+                html = '🚧' + html;
+            }*/
             var popup = new mapboxgl.Popup()
                 .setLngLat(e.lngLat)
-                .setHTML(`<h3>${name}</h3>` +
-                         (description ? `<div class="popup-description">${description}</div>` : '') +
-                         (status ? `<div class="popup-status">${status}</div>` : '') +
-                         actions)
+                .setHTML(html)
                 .addTo(map);
             return true;
         }
@@ -149,23 +191,6 @@ function addLayers() {
 
     map.on('click', function (e) {
         makePopup('planning', e) || makePopup('roadclosures', e) || makePopup('interestarea', e) || makePopup('events', e);
-        /*var features = map.queryRenderedFeatures(e.point, { layers: ['planning'] });
-        if (features.length) {
-            return makePopup(e.lngLat, features[0].properties.name, features[0].properties.description, features[0].properties.status);
-        }
-        features = map.queryRenderedFeatures(e.point, { layers: ['roadclosures'] });
-        if (features.length) {
-            return makePopup(e.lngLat, features[0].properties.name, features[0].properties.description);
-        }
-        features = map.queryRenderedFeatures(e.point, { layers: ['interestarea'] });
-        if (features.length) {
-            return makePopup(e.lngLat, features[0].properties.name, '');
-        }
-
-        */
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
     });
 
 }
@@ -176,30 +201,45 @@ map = new mapboxgl.Map({
     center: [144.95, -37.8], 
     zoom: 13
 });
-map.on('load', addLayers );
+
+map.on('load', () => {
+    getJSON('https://gist.githubusercontent.com/stevage/423816068ba7273adec25387a82a1f59/raw/map.geojson', 
+        data => addLayers(data)
+    );
+} );
+
 
 document.getElementById('time-slider').addEventListener('input', function(e) {
     console.log(e);
     changeDate(e.target.value);
 });
 
-document.getElementById('address-box').addEventListener('change', function(e) {
+function getJSON(url, callback) {
     var request = new XMLHttpRequest();
 
-    request.open('GET', 'https://nominatim.openstreetmap.org/search/' + encodeURIComponent(e.target.value)  +  ', VIC, Australia'+ '?format=json', true);
+    request.open('GET', url, true);
     request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
           // Success!
           var data = JSON.parse(request.responseText);
           console.log(data);
-          if (data.length > 0) {
-            map.flyTo( { center: [data[0].lon,data[0].lat] });
-          }
+          callback(data);
         } else {
           // We reached our target server, but it returned an error
 
         }
     };
     request.send();
+}
+
+document.getElementById('address-box').addEventListener('change', function(e) {
+    $('#map-wrapper').show();
+    /*$('#mapid').show();
+    $('#slider-wrapper').show();*/
+    getJSON('https://nominatim.openstreetmap.org/search/' + encodeURIComponent(e.target.value)  +  ', VIC, Australia'+ '?format=json', function(data) {
+        if (data.length > 0) {
+            map.flyTo( { center: [data[0].lon,data[0].lat] });
+        }
+    });
   //  http://nominatim.openstreetmap.org/search/111%20miller%20st%20fitzroy%20north%20australia?format=json
 });

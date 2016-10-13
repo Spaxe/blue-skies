@@ -272,3 +272,14 @@ body {
 .fullpage {
   width: 100%;
 }
+
+.profile-popup {
+    position: absolute;
+    left: 40%;
+    width: 300px;
+    top: 200px;
+    background: hsl(0, 0%, 93%);
+    padding: 1em;
+    box-shadow: 4px 4px 4px #777;
+    display:none;
+}

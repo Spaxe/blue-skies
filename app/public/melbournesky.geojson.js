@@ -338,7 +338,7 @@ window.layers={
         "description": "Major shopping centre redevelopment.",
         "layer": "Planning",
         "date-start": 20170401,
-        "status": "Comments on Phase 1 close December 23."
+        "status": "<ul><li>Phase 1: comments close December 23, 2016.</li><li>Construction begins April 2017.</li></ul>"
       },
       "geometry": {
         "type": "Polygon",
@@ -536,6 +536,69 @@ window.layers={
         "coordinates": [
           144.92168426513672,
           -37.78916666399648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 2,
+        "stroke-opacity": 1,
+        "fill": "#555555",
+        "fill-opacity": 0.5,
+        "layer": "Planning",
+        "name": "Fisherman's Bend Urban Renewal Area",
+        "following": "true",
+        "description": "Fishermans Bend is the largest urban renewal area in Australia. Plan Melbourne identifies Fishermans Bend as a key part of an expanded central city.  Located to the south-west of Melbourne’s CBD and covering an area of approximately 491 hectares, Fishermans Bend is bound by Williamstown Road and Boundary Street to the south, City Road to the east, the Yarra River to the north, and Westgate Freeway and Todd Road to the west.  Over the next 35 years, Fishermans Bend is expected to be home to approximately 80,000 residents and 60,000 jobs across five precincts.",
+        "status": "Phase 1 consultation finished in June 2016.",
+        "date-start": 20190101
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.9059772491455,
+              -37.82442958216433
+            ],
+            [
+              144.91035461425778,
+              -37.822056645079854
+            ],
+            [
+              144.91902351379395,
+              -37.819954837091565
+            ],
+            [
+              144.92966651916504,
+              -37.82042944412691
+            ],
+            [
+              144.94030952453613,
+              -37.82259903742557
+            ],
+            [
+              144.9399662017822,
+              -37.82626008149932
+            ],
+            [
+              144.93172645568848,
+              -37.82612449051307
+            ],
+            [
+              144.91979598999023,
+              -37.82910743466058
+            ],
+            [
+              144.91215705871582,
+              -37.833174891441395
+            ],
+            [
+              144.9059772491455,
+              -37.82442958216433
+            ]
+          ]
         ]
       }
     }
