@@ -51,3 +51,9 @@
 .popup-status ul {
     padding-left:12px; /* less bullets */
 }
+
+.popup-lastchance {
+    font-style: italic;
+    color: hsl(10,80%,54%);
+    font-size: 18px;
+}

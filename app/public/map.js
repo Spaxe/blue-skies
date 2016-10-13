@@ -173,6 +173,7 @@ function addLayers(data) {
             var html = `<div class="popup-type-${layer}">` + 
 
                         '<h3>' + (layer === 'roadclosures' ? '🚧 ' : '') + `${name}</h3>` +
+                        (p.comments ? '<div class="popup-lastchance">Last chance to comment!</div>' : '') +
                         
                         (description ? `<div class="popup-description">${description}</div>` : '') +
                         (status ? `<div class="popup-status">${status}</div>` : '') +
